@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
@@ -26,6 +28,33 @@ namespace NosTaleGfless
                 {
                     NostaleProcess process = RunProcess(account, nostalePath);
                     process.Initialized = ProcessPipeServer(process, sessionToken).GetAwaiter().GetResult();
+
+                    if (process.Initialized)
+                    {
+                        while (true)
+                        {
+                            List<IntPtr> handles = new List<IntPtr>();
+
+                            // wait for main window open
+                            User32.EnumDesktopWindows(IntPtr.Zero, (hWnd, lParam) =>
+                            {
+                                User32.GetWindowThreadProcessId(hWnd, out uint processId);
+                                if (processId == process.ProcessId)
+                                {
+                                    handles.Add(hWnd);
+                                }
+
+                                return true;
+                            }, IntPtr.Zero);
+
+                            if (handles.Count > 6)
+                            {
+                                break;
+                            }
+
+                            Task.Delay(50).GetAwaiter().GetResult();
+                        }
+                    }
 
                     return process;
                 }
