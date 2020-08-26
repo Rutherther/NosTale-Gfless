@@ -47,7 +47,7 @@ namespace NosTaleGfless
                                 return true;
                             }, IntPtr.Zero);
 
-                            if (handles.Count > 6)
+                            if (handles.Count > 6 || process.HasExited)
                             {
                                 break;
                             }
