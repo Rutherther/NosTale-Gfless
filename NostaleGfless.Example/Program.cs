@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using CommandLine;
@@ -33,41 +34,55 @@ namespace NostaleGfless.Example
                 var authenticator = new GameforgeAuthenticator();
                 authenticator.InstallationId = installationId;
                 var launcher  = await authenticator.Authenticate(options.Email, options.Password);
-
-                GameforgeAccount account = launcher.Accounts.FirstOrDefault();
-                if (account == null)
+                if (launcher.Accounts.Count == 0)
                 {
                     throw new InvalidOperationException("There are no nostale account on the gameforge account");
                 }
 
+                List<GameforgeAccount> accounts = new List<GameforgeAccount>();
+
                 if (options.AccountName != null)
                 {
-                    account = launcher.Accounts.FirstOrDefault(x => x.Name == options.AccountName);
-
-                    if (account == null)
+                    foreach (string accountName in options.AccountName.Split(','))
                     {
-                        account = launcher.Accounts.FirstOrDefault(x => x.Name.Contains(options.AccountName));
+                        GameforgeAccount account = launcher.Accounts.FirstOrDefault(x => x.Name == accountName);
 
                         if (account == null)
                         {
-                            throw new InvalidOperationException("Account not found");
+                            account = launcher.Accounts.FirstOrDefault(x => x.Name.Contains(accountName));
+
+                            if (account == null)
+                            {
+                                throw new InvalidOperationException($"Account {accountName} not found");
+                            }
                         }
+                        
+                        accounts.Add(account);
                     }
                 }
-                
-                Console.WriteLine($"Selected account: {account.Name}");
-                Console.WriteLine("Launching nostale with the selected account ...");
-                    
-                Console.WriteLine("Waiting for nostale ...");
-                var result = await launcher.Launch(account, options.NostalePath);
 
-                if (result != null && result.Initialized)
+                if (accounts.Count == 0)
                 {
-                    Console.WriteLine($"Nostale launched successfully. Process id: {result.ProcessId}, Session id: {result.SessionId}");
+                    accounts.Add(launcher.Accounts.FirstOrDefault());
                 }
-                else
+
+                foreach (GameforgeAccount account in accounts)
                 {
-                    Console.WriteLine("There was an error launching nostale");
+                    Console.WriteLine($"Selected account: {account.Name}");
+                    Console.WriteLine("Launching nostale with the selected account ...");
+
+                    Console.WriteLine("Waiting for nostale ...");
+                    var result = await launcher.Launch(account, options.NostalePath);
+
+                    if (result != null && result.Initialized)
+                    {
+                        Console.WriteLine(
+                            $"Nostale launched successfully. Process id: {result.ProcessId}, Session id: {result.SessionId}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("There was an error launching nostale");
+                    }
                 }
 
                 ewh.Set();

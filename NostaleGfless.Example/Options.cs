@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using CommandLine;
 using Newtonsoft.Json;
 
@@ -11,7 +12,7 @@ namespace NostaleGfless.Example
         [Option('n', "nostale", Required = true, HelpText = "Path to nostale folder or NostaleClientX.exe")]
         public string NostalePath { get; set; }
 
-        [Option('a', "account", Required = false, HelpText = "Name of the account to connect to. Otherwise the first one will be used.")]
+        [Option('a', "account", Required = false, HelpText = "Name of the account to connect to. Otherwise the first one will be used. For more accounts split them using coma")]
         public string AccountName { get; set; }
 
         [Value(0, MetaName = "Email", Required = true, HelpText = "Gameforge account email")]
