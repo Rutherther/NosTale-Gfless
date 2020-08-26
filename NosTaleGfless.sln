@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NosTaleGfless", "NosTaleGfless\NosTaleGfless.csproj", "{A3F83A69-3981-4C18-953D-DFC7384E041E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NostaleAuth", "NostaleAuth\NostaleAuth.csproj", "{63031600-41E1-4B37-A9C5-90CFF5196806}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NostaleGfless.Example", "NostaleGfless.Example\NostaleGfless.Example.csproj", "{66C5FF7F-E7A3-404D-A84A-4B91C1A12980}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3F83A69-3981-4C18-953D-DFC7384E041E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3F83A69-3981-4C18-953D-DFC7384E041E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3F83A69-3981-4C18-953D-DFC7384E041E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3F83A69-3981-4C18-953D-DFC7384E041E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63031600-41E1-4B37-A9C5-90CFF5196806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63031600-41E1-4B37-A9C5-90CFF5196806}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63031600-41E1-4B37-A9C5-90CFF5196806}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63031600-41E1-4B37-A9C5-90CFF5196806}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66C5FF7F-E7A3-404D-A84A-4B91C1A12980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66C5FF7F-E7A3-404D-A84A-4B91C1A12980}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66C5FF7F-E7A3-404D-A84A-4B91C1A12980}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66C5FF7F-E7A3-404D-A84A-4B91C1A12980}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
