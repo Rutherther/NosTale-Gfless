@@ -24,6 +24,7 @@ namespace NosTaleGfless
             Process = process;
             _cancellationTokenSource = new CancellationTokenSource();
 
+            Process.Process.EnableRaisingEvents = true;
             Process.Process.Exited += OnNostaleExit;
         }
 
