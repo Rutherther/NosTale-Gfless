@@ -86,6 +86,9 @@ namespace NostaleGfless.Example
                 }
 
                 ewh.Set();
+            }).WithNotParsed((err) =>
+            {
+                ewh.Set();
             });
             
             ewh.WaitOne();
