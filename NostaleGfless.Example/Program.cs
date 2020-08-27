@@ -12,28 +12,29 @@ namespace NostaleGfless.Example
     internal class Program
     {
         static EventWaitHandle ewh = new ManualResetEvent(false);
-        
+
         public static void Main(string[] args)
         {
-            string installationIdString = (string)Registry.GetValue(@"HKEY_CURRENT_USER\Software\Gameforge4d\TNTClient\MainApp",
+            string installationIdString = (string) Registry.GetValue(
+                @"HKEY_CURRENT_USER\Software\Gameforge4d\TNTClient\MainApp",
                 "InstallationId", null);
-            
+
             Guid? installationId = null;
             if (installationIdString != null)
             {
                 installationId = Guid.Parse(installationIdString);
             }
-            
+
             Parser.Default.ParseArguments<Options>(args).WithParsed(async options =>
             {
                 if (options.InstallationId != null)
                 {
                     installationId = Guid.Parse(options.InstallationId);
                 }
-                
+
                 var authenticator = new GameforgeAuthenticator();
                 authenticator.InstallationId = installationId;
-                var launcher  = await authenticator.Authenticate(options.Email, options.Password);
+                var launcher = await authenticator.Authenticate(options.Email, options.Password);
                 if (launcher.Accounts.Count == 0)
                 {
                     throw new InvalidOperationException("There are no nostale account on the gameforge account");
@@ -56,7 +57,7 @@ namespace NostaleGfless.Example
                                 throw new InvalidOperationException($"Account {accountName} not found");
                             }
                         }
-                        
+
                         accounts.Add(account);
                     }
                 }
@@ -86,11 +87,8 @@ namespace NostaleGfless.Example
                 }
 
                 ewh.Set();
-            }).WithNotParsed((err) =>
-            {
-                ewh.Set();
-            });
-            
+            }).WithNotParsed((err) => { ewh.Set(); });
+
             ewh.WaitOne();
         }
     }

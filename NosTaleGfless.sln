@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NosTaleGfless", "NosTaleGfl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NostaleAuth", "NostaleAuth\NostaleAuth.csproj", "{63031600-41E1-4B37-A9C5-90CFF5196806}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NostaleGfless.Example", "NostaleGfless.Example\NostaleGfless.Example.csproj", "{66C5FF7F-E7A3-404D-A84A-4B91C1A12980}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NostaleGfless.Example", "NostaleGfless.Example\NostaleGfless.Example.csproj", "{C451472E-0D92-48A2-A6C1-E36AF709DBF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,9 +20,9 @@ Global
 		{63031600-41E1-4B37-A9C5-90CFF5196806}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63031600-41E1-4B37-A9C5-90CFF5196806}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63031600-41E1-4B37-A9C5-90CFF5196806}.Release|Any CPU.Build.0 = Release|Any CPU
-		{66C5FF7F-E7A3-404D-A84A-4B91C1A12980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{66C5FF7F-E7A3-404D-A84A-4B91C1A12980}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{66C5FF7F-E7A3-404D-A84A-4B91C1A12980}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{66C5FF7F-E7A3-404D-A84A-4B91C1A12980}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C451472E-0D92-48A2-A6C1-E36AF709DBF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C451472E-0D92-48A2-A6C1-E36AF709DBF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C451472E-0D92-48A2-A6C1-E36AF709DBF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C451472E-0D92-48A2-A6C1-E36AF709DBF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
